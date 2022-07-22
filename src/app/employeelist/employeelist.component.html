@@ -1,0 +1,25 @@
+
+
+
+
+<h3 class="text-center" style="background-color: #95E7D0;">Employee List</h3>
+<div class="align center" *ngIf="this.service.employeeList.length==0">
+  <h3 class="text-danger">no records</h3>
+</div>
+<div *ngIf="this.service.employeeList.length>0">
+  <table class="table table-responsive">
+    <tr>
+      <th>Id</th><th>Name</th><th>Location</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let emp of this.service.employeeList">
+        <td>{{emp.employeeId}}</td>
+        <td>{{emp.employeeName}}</td>
+        <td>{{emp.employeeLocation}}</td>
+        <td><button class="btn btn-danger" (click)="deleteEmployee(emp.employeeId)">delete</button></td>
+        <td><button (click)="updateEmployee(emp)" class="btn btn-info">update</button></td>
+        <!-- <td><button (click)="updateEmployee(emp)">update</button></td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
